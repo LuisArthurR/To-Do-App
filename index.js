@@ -1,4 +1,4 @@
-//Seletores HTML
+//Selectors
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
@@ -23,36 +23,36 @@ function addTodo(event) {
         const todoDiv = document.createElement("div");
         todoDiv.classList.add("todo");
 
-        //Cria o item da lista
+        //create a item
         const newTodo = document.createElement("li");
         newTodo.innerText = todoInput.value;
         newTodo.classList.add('todo-item');
         todoDiv.appendChild(newTodo);
 
-        //Cria o botão de marcar
+        //create check button
         const completedButton = document.createElement("button");
         completedButton.innerHTML = '<i class="fas fa-check"></i>';
         completedButton.classList.add('complete-btn');
         todoDiv.appendChild(completedButton);
 
-        //Cria o botão de lixeira
+        //create remove button
         const trashButton = document.createElement("button");
         trashButton.innerHTML = '<i class="fas fa-trash"></i>';
         trashButton.classList.add('trash-btn');
         todoDiv.appendChild(trashButton);
 
-        //add to Do to localStorage
+        //add to localStorage
         saveLocalTodos(todoInput.value);
 
         //append to list
         todoList.appendChild(todoDiv);
 
-        //Limpa o input depois de enviar
+        //Clean the input
         todoInput.value = "";
     }
 }
 
-//Deleta o item
+//Delete item
 function deleteCheck(e){
     const item = e.target;
 
@@ -69,7 +69,7 @@ function deleteCheck(e){
     }
 }
 
-//Filta as opções de to Do
+//Option filter
 function filterTodo(e){
     const todos = todoList.childNodes;
 
@@ -102,7 +102,7 @@ function filterTodo(e){
     })
 }
 
-//Salva no local Storage
+//Save in local Storage
 function saveLocalTodos(todo){
     let todos;
 
@@ -116,7 +116,7 @@ function saveLocalTodos(todo){
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-//Printa os itens salvos no localStorage
+//Print the save itens of local storage
 function getTodos(){
     let todos;
 
@@ -154,7 +154,7 @@ function getTodos(){
     })
 }
 
-//Deleta os itens do localStorage
+//Delete the itens of local Storage
 function removeLocalStorage(todo){
     let todos;
     
